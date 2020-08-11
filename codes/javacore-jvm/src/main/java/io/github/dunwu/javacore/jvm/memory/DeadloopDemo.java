@@ -27,7 +27,7 @@ public class DeadloopDemo {
         IntStream.rangeClosed(1, 10).mapToObj(i -> new Thread(() -> {
             while (true) {
                 //每一个线程都是一个死循环，休眠10秒，打印10M数据
-                String payload = IntStream.rangeClosed(1, 10000000)
+                String payload = IntStream.rangeClosed(1, 10000)
                     .mapToObj(__ -> "a")
                     .collect(Collectors.joining("")) + UUID.randomUUID().toString();
                 try {
